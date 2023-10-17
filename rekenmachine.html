@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekenmachine</title>
+    <link rel="stylesheet" href="rek.css">
+</head>
+
+<header>
+   <h1> Dit is de Rekenmachine</h1>
+</header>
+
+<body>
+    <div class="container">
+        <div class="numbers">
+            <div id="output">
+                <p id="demo"></p>
+            </div>
+            <button id="een" onclick="plaatsNummer('1')"> 1 </button>
+            <button id="twee" onclick="plaatsNummer('2')"> 2 </button>
+            <button id="drie" onclick="plaatsNummer('3')"> 3 </button>
+            <button id="plus" onclick="plaatsPlus('+')"> + </button>    <br>
+            <button id="vier" onclick="plaatsNummer('4')"> 4 </button>
+            <button id="vijf" onclick="plaatsNummer('5')"> 5 </button>
+            <button id="zes" onclick="plaatsNummer('6')"> 6 </button>
+            <button id="keer" onclick="plaatsKeer('*')"> x                </button>    <br>
+            <button id="zeven" onclick="plaatsNummer('7')"> 7 </button>
+            <button id="acht" onclick="plaatsNummer('8')"> 8 </button>
+            <button id="negen" onclick="plaatsNummer('9')"> 9 </button>
+            <button id="deel" onclick="plaatsDeel('/')"> : </button>    <br>
+            <button id="clear" onclick="plaatsClear()"> C </button>
+            <button id="0" onclick="plaatsNummer('0')"> 0 </button>
+            <button id="komma" onclick="plaatsKomma(',')"> , </button>
+            <button id="min" onclick="plaatsMin('-')"> - </button>
+            <div class="is">
+                <button id="isx" onclick="evaluateExpression()"> = </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function plaatsNummer(num) {
+            document.getElementById("output").innerHTML += num;
+        }
+
+        function plaatsPlus(plus) {
+            document.getElementById("output").innerHTML += plus;
+        }
+
+        function plaatsKeer(keer) {
+            document.getElementById("output").innerHTML += keer;
+        }
+
+        function plaatsDeel(deel) {
+            document.getElementById("output").innerHTML += deel;
+        }
+
+        function plaatsMin(min) {
+            document.getElementById("output").innerHTML += min;
+        }
+
+        function plaatsClear() {
+            document.getElementById("output").innerHTML = '';
+        }
+
+        function plaatsKomma(komma) {
+            document.getElementById("output").innerHTML += komma;
+        }
+
+        function evaluateExpression() {
+            var expression = document.getElementById("output").innerText;
+            var result = eval(expression);
+            document.getElementById("demo").innerText = result;
+        }
+    </script>
+</body>
+</html>
